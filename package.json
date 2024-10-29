@@ -17,9 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "copy-cname": "ncp CNAME build/",
-    "predeploy": "npm run build && npm run copy-cname",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build",
+	"deploy": "npm run build && npx angular-cli-ghpages --dir=build --cname=www.40175600.xyz --no-silent"
   },
   "eslintConfig": {
     "extends": [
