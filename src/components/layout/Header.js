@@ -25,6 +25,9 @@ function Header() {
             <Link to="/grocery" className="dropdown-item">
               Grocery
             </Link>
+            <Link to="/jsonGenerator" className="dropdown-item">
+              Json 
+            </Link>
             {/* Add more project links as needed */}
           </div>
         </div>

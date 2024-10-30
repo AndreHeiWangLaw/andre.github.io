@@ -39,6 +39,7 @@ const FlyerItems = () => {
                     <div key={index} className="item">
                         <h2>{item.name || 'Unnamed Item'}</h2>
                         <p>Price: {item.price !== undefined ? item.price : 'N/A'}</p>
+                        <p>Store: {item.store_name !== undefined ? item.store_name : 'N/A'}</p>
                         <img 
                             src={item.cutout_image_url || ''} 
                             alt={item.name || 'Image'} 
