@@ -15,10 +15,13 @@ function Header() {
         {/* Dropdown Menu */}
         <div className="dropdown">
           <button className="dropdown-button">
-            Projects
+            Tabs
           </button>
 
           <div className="dropdown-menu">
+          <Link to="/" className="dropdown-item">
+              Home
+            </Link>
             <Link to="/grocery" className="dropdown-item">
               Grocery
             </Link>
