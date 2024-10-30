@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4; /* Slightly darker light grey */
     margin: 0;
-    padding: 0px; /* Add some padding for consistent spacing */
+    padding: 0; /* Add some padding for consistent spacing */
 }
 
 h1 {
@@ -35,8 +35,9 @@ button:hover {
 .message {
     margin-top: 15px;
     padding: 10px;
-    background-color: #e2e8f0; /* Light grey background for messages */
-    color: #cf0e0e; /* Red color for error messages */
+    background-color: #ffffff; /* Light grey background for messages */
+    color: #333; /* Dark grey text for message content */
+    border: 1px solid #ccc; /* Light grey border to define the message area */
     border-radius: 4px; /* Rounded corners for messages */
 }
 
