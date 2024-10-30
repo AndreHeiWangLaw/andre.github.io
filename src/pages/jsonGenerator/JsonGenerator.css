@@ -1,46 +1,49 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #f4f4f4; /* Slightly darker light grey */
     margin: 0;
-    padding: 0px; /* Retain padding for consistent spacing */
+    padding: 0px; /* Add some padding for consistent spacing */
 }
 
 h1 {
-    color: #333;
+    color: #333; /* Dark grey for the main heading */
 }
 
 label {
     font-weight: bold;
+    color: #333; /* Dark grey for labels */
 }
 
 select, input[type="text"], button {
     margin-top: 10px;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Rounded corners */
 }
 
 button {
-    background-color: #28a745;
+    background-color: #4a5568; /* Dark grey background for buttons */
     color: white;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #2d3748; /* Darker grey on hover */
 }
 
 .message {
     margin-top: 15px;
     padding: 10px;
-    color: #cf0e0e;
+    background-color: #e2e8f0; /* Light grey background for messages */
+    color: #cf0e0e; /* Red color for error messages */
+    border-radius: 4px; /* Rounded corners for messages */
 }
 
 .footer {
     margin-top: 20px;
     text-align: center;
-    color: #666;
+    color: #666; /* Medium grey for footer text */
 }
 
 button.disabled {
@@ -73,4 +76,6 @@ input[type="text"] {
 /* Reduce the width of the select element */
 select {
     width: 150px; /* Fixed width for select dropdown */
+    background-color: #ffffff; /* White background for select */
+    color: #333; /* Dark grey text for select */
 }

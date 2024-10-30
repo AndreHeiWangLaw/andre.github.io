@@ -1,71 +1,72 @@
 /* src/components/Header.css */
 
 .header {
-    background-color: #a0cadd; /* Dark gray */
-    color: white;
-    padding: 16px; /* Padding around the header */
-    border: 8px solid #8e6ddb;
-  }
-  
-  .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .logo {
-    flex: 1;
-    text-align: center; /* Center the logo */
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-button {
-    background-color: #2d3748; /* Darker gray */
-    color: white;
-    border: none;
-    padding: 8px 16px; /* Padding around the button */
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .dropdown-button:hover {
-    background-color: #4a5568; /* Change on hover */
-  }
-  
-  /* Dropdown menu styles */
-  .dropdown-menu {
-    display: none; /* Hide dropdown menu by default */
-    position: absolute;
-    right: 0;
-    z-index: 10;
-    top: 100%; /* Position it directly below the button */
-    margin: 0; /* Remove any margin */
-    background-color: white;
-    color: #2d3748; /* Dark text for dropdown items */
-    border-radius: 4px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-  }
-  
-  .dropdown:hover .dropdown-menu {
-    display: block; /* Show dropdown menu when hovering over the dropdown */
-  }
-  
-  /* Keep the dropdown menu visible when hovered */
-  .dropdown-menu:hover {
-    display: block; /* Ensure the menu stays visible when hovered */
-  }
-  
-  .dropdown-item {
-    display: block;
-    padding: 8px 16px; /* Padding for dropdown items */
-    text-decoration: none;
-  }
-  
-  .dropdown-item:hover {
-    background-color: #f7fafc; /* Light gray background on hover */
-  }
-  
+  background-color: #f4f4f4; /* Slightly darker light grey background */
+  color: #333; /* Dark grey text color */
+  padding: 16px; /* Padding around the header */
+  border: 1px solid #ccc; /* Medium grey border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  flex: 1;
+  text-align: center; /* Center the logo */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  background-color: #4a5568; /* Dark grey background */
+  color: white; /* White text for contrast */
+  border: none;
+  padding: 8px 16px; /* Padding around the button */
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-button:hover {
+  background-color: #2d3748; /* Darker grey on hover */
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+  display: none; /* Hide dropdown menu by default */
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  top: 100%; /* Position it directly below the button */
+  margin: 0; /* Remove any margin */
+  background-color: #ffffff; /* White background for dropdown */
+  color: #333; /* Dark grey text for dropdown items */
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block; /* Show dropdown menu when hovering over the dropdown */
+}
+
+/* Keep the dropdown menu visible when hovered */
+.dropdown-menu:hover {
+  display: block; /* Ensure the menu stays visible when hovered */
+}
+
+.dropdown-item {
+  display: block;
+  padding: 8px 16px; /* Padding for dropdown items */
+  text-decoration: none;
+  color: #333; /* Dark grey text for dropdown items */
+}
+
+.dropdown-item:hover {
+  background-color: #f7fafc; /* Light grey background on hover */
+}
