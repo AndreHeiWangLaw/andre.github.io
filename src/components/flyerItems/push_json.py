@@ -29,6 +29,9 @@ def get_file_sha(repo_url, file_path, file_name, token):
         return None
 
 def push_file_to_github(repo_url, file_path, file_name, commit_message, content, token):
+    # Normalize line endings to LF
+    content = content.replace('\r\n', '\n')
+
     # Get the SHA of the file if it exists
     sha = get_file_sha(repo_url, file_path, file_name, token)
     
@@ -65,6 +68,7 @@ def push_file_to_github(repo_url, file_path, file_name, commit_message, content,
         print('File uploaded successfully!')
     else:
         print(f'Error: {response.status_code} - {response.text}')
+
 
 # Get user inputs
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')  # Get the token from environment variable
