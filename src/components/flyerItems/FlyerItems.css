@@ -14,9 +14,9 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    text-align: center;
-    color: #333;
+.item h1 {
+    margin: 0;
+    font-size: 1.2em;
 }
 
 .flyer-items {

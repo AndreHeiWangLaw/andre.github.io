@@ -1,4 +1,3 @@
-// src/pages/jsonGenerator/JsonGenerator.js
 import React, { useState } from 'react';
 
 // Layout
@@ -13,6 +12,11 @@ const JsonGenerator = () => {
     const [storeName, setStoreName] = useState(''); // State for selected store name
 
     const handleGenerateJson = async () => {
+        if (!storeName) {
+            setMessage("Please select a store before generating JSON."); // Prevent generating JSON if store not selected
+            return;
+        }
+
         const flyerIdMatch = url.match(/\/(\d+)-/);
         if (flyerIdMatch) {
             const flyerId = flyerIdMatch[1];
@@ -26,7 +30,7 @@ const JsonGenerator = () => {
                     // Add store_name to each item
                     const updatedItems = data.map(item => ({
                         ...item,
-                        store_name: storeName, // Add the selected store name
+                        store_name: storeName, // Store name is required at this point
                     }));
 
                     // Combine the new items with the existing items
@@ -70,30 +74,40 @@ const JsonGenerator = () => {
             <Header />
             <h1>Generate Flyer JSON</h1>
 
-            <label htmlFor="store-select">Select Grocery Store:</label>
-            <select
-                id="store-select"
-                value={storeName}
-                onChange={(e) => setStoreName(e.target.value)} // Update store name on selection
-            >
-                <option value="">Select a store</option>
-                <option value="IGA">IGA</option>
-                <option value="Metro">Metro</option>
-                <option value="SuperC">SuperC</option>
-            </select>
+            {/* Container to keep select, flyer URL input, and buttons side by side */}
+            <div className="input-button-container">
+                <select
+                    id="store-select"
+                    value={storeName}
+                    onChange={(e) => setStoreName(e.target.value)} // Update store name on selection
+                >
+                    <option value="">Select a store</option>
+                    <option value="IGA">IGA</option>
+                    <option value="Metro">Metro</option>
+                    <option value="SuperC">SuperC</option>
+                </select>
 
-            <input
-                type="text"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder="Enter flyer URL"
-            />
-            <button onClick={handleGenerateJson}>Generate JSON</button>
+                <input
+                    type="text"
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
+                    placeholder="Enter flyer URL"
+                />
+
+                <button onClick={handleGenerateJson}>Generate JSON</button>
+
+                {/* Show download button and disable it if no items exist */}
+                <button 
+                    onClick={handleDownloadJson} 
+                    disabled={flyerItems.length === 0} 
+                    className={flyerItems.length === 0 ? 'disabled' : ''}
+                >
+                    Download JSON
+                </button>
+            </div>
 
             {message && <p className="message">{message}</p>} {/* Display success/error message */}
-            {flyerItems.length > 0 && ( // Show download button only if there are items
-                <button onClick={handleDownloadJson}>Download JSON</button>
-            )}
+
             <Footer />
         </div>
     );

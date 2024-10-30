@@ -24,7 +24,6 @@ const FlyerItems = () => {
     // Render flyer items
     return (
         <div className="flyer-items">
-            <h1>Flyer Items</h1>
             <input
                 type="text"
                 placeholder="Search items..."

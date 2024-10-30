@@ -11,14 +11,6 @@ const Grocery = () => {
     return (
         <div>
             <Header />
-            <p1>Lorem ipsum dolor sit amet. Aut odit sunt qui doloremque pariatur non totam quis ea 
-                fuga amet. Id dolorem corrupti et dolor excepturi est debitis earum eos eaque sunt 
-                cum placeat aliquam ad quia quia. Ea numquam neque et saepe quia qui aperiam quibusdam 
-                id temporibus obcaecati. Aut dolore rerum id libero deserunt sed dolor ullam a voluptas 
-                voluptas? Qui autem harum ut enim reiciendis aut quia tempore. Quo sapiente blanditiis 
-                quo saepe neque qui reprehenderit reprehenderit est minima consequuntur vel quis vero 
-                cum asperiores itaque nam dolorem facilis.
-            </p1>
             <FlyerItems /> {/* Render FlyerItems component */}
             <Footer />
         </div>
