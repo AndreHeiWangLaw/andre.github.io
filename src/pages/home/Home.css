@@ -1,0 +1,31 @@
+/* src/pages/Home.css */
+
+.grocery-link {
+    display: inline-block; /* Only the square area is clickable */
+    text-decoration: none; /* Remove underline from link */
+  }
+  
+  .grocery-square {
+    width: 200px; /* Set width */
+    height: 200px; /* Set height */
+    border: 2px solid #4a5568; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Center image */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    margin: 20px auto; /* Center square horizontally */
+    transition: transform 0.3s; /* Smooth transform effect */
+  }
+  
+  .grocery-square:hover {
+    transform: scale(1.05); /* Scale up on hover */
+  }
+  
+  .grocery-image {
+    width: 100%; /* Make the image fill the square */
+    height: 100%; /* Ensure the image covers the entire square */
+    object-fit: cover; /* Maintain aspect ratio and cover the square */
+    display: block; /* Remove any space below the image */
+  }
+  
