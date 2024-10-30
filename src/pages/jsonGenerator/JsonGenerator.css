@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
-    padding: 20px;
+    padding: 0px; /* Retain padding for consistent spacing */
 }
 
 h1 {
@@ -34,10 +34,7 @@ button:hover {
 .message {
     margin-top: 15px;
     padding: 10px;
-    background-color: #e7f3fe;
-    color: #31708f;
-    border: 1px solid #bce8f1;
-    border-radius: 4px;
+    color: #cf0e0e;
 }
 
 .footer {
@@ -47,25 +44,33 @@ button:hover {
 }
 
 button.disabled {
-    background-color: #ccc; /* Grey background */
-    color: #666; /* Grey text */
+    background-color: #ccc; /* Grey background for disabled state */
+    color: #666; /* Grey text for disabled state */
     cursor: not-allowed; /* Change cursor to indicate it's not clickable */
 }
 
 /* Flex container to align select, input, and buttons horizontally */
-.input-button-container {
+.input-container {
     display: flex;
     align-items: center;
     gap: 10px; /* Space between elements */
-    margin-top: 10px;
+    margin-bottom: 16px; /* Spacing below the input container */
 }
 
 /* Ensure the input field grows to fit the space */
 input[type="text"] {
-    flex-grow: 1;
+    flex-grow: 1; /* Allow input to grow relative to available space */
+    min-width: 200px; /* Optional: Set a minimum width for better usability */
+}
+
+/* Flex container for buttons aligned on a new row */
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
 }
 
 /* Reduce the width of the select element */
 select {
-    width: 150px;
+    width: 150px; /* Fixed width for select dropdown */
 }

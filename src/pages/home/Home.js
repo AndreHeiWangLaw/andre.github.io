@@ -5,8 +5,6 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link
 
 // layout
-import Header from '../../components/layout/Header'; // Import the Header component
-import Footer from '../../components/layout/Footer'; // Import the Footer component
 import './Home.css'; // Import CSS for styling (create this file for your styles)
 
 // assets
@@ -17,7 +15,6 @@ import jsonImage from '../../assets/images/json_icon.jpg'; // Import the image
 const Home = () => {
     return (
       <div>
-        <Header />
         <Link to="/grocery" className="page-link">
           <div className="page-square">
             <img
@@ -36,7 +33,6 @@ const Home = () => {
             />
           </div>
         </Link>
-        <Footer />
       </div>
     );
   };

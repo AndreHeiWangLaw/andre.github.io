@@ -1,9 +1,10 @@
 /* src/components/Header.css */
 
 .header {
-    background-color: #4a5568; /* Dark gray */
+    background-color: #a0cadd; /* Dark gray */
     color: white;
     padding: 16px; /* Padding around the header */
+    border: 8px solid #8e6ddb;
   }
   
   .header-content {

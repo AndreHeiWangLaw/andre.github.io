@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 
 // Layout
-import Header from '../../components/layout/Header'; // Import the Header component
-import Footer from '../../components/layout/Footer'; // Import the Footer component
 import './JsonGenerator.css'; // Import the CSS file for styling
 
 const JsonGenerator = () => {
     const [url, setUrl] = useState('');
     const [message, setMessage] = useState('');
-    const [flyerItems, setFlyerItems] = useState([]); // State to hold fetched flyer items (initially an empty array)
-    const [storeName, setStoreName] = useState(''); // State for selected store name
+    const [flyerItems, setFlyerItems] = useState([]);
+    const [storeName, setStoreName] = useState('');
 
     const handleGenerateJson = async () => {
         if (!storeName) {
             setMessage("Please select a store before generating JSON."); // Prevent generating JSON if store not selected
+            setTimeout(() => setMessage(''), 2000); // Clear message after 2 seconds
             return;
         }
 
@@ -26,7 +25,7 @@ const JsonGenerator = () => {
                 const response = await fetch(flyerItemsUrl);
                 if (response.ok) {
                     const data = await response.json();
-                    
+
                     // Add store_name to each item
                     const updatedItems = data.map(item => ({
                         ...item,
@@ -36,18 +35,22 @@ const JsonGenerator = () => {
                     // Combine the new items with the existing items
                     setFlyerItems(prevItems => [...prevItems, ...updatedItems]); // Append new items to the existing state
                     setMessage(`Flyer items for ${storeName} have been added successfully.`);
+                    setTimeout(() => setMessage(''), 2000); // Clear message after 2 seconds
 
                     // Clear the input field and reset dropdown after generating JSON
                     setUrl(''); // Reset URL input
                     setStoreName(''); // Reset store name dropdown
                 } else {
                     setMessage(`Failed to fetch flyer items: ${response.status}`);
+                    setTimeout(() => setMessage(''), 2000); // Clear message after 2 seconds
                 }
             } catch (error) {
                 setMessage(`Error: ${error.message}`);
+                setTimeout(() => setMessage(''), 2000); // Clear message after 2 seconds
             }
         } else {
             setMessage("Invalid flyer URL.");
+            setTimeout(() => setMessage(''), 2000); // Clear message after 2 seconds
         }
     };
 
@@ -71,15 +74,14 @@ const JsonGenerator = () => {
 
     return (
         <div>
-            <Header />
             <h1>Generate Flyer JSON</h1>
 
-            {/* Container to keep select, flyer URL input, and buttons side by side */}
-            <div className="input-button-container">
+            {/* Container for select and input fields */}
+            <div className="input-container">
                 <select
                     id="store-select"
                     value={storeName}
-                    onChange={(e) => setStoreName(e.target.value)} // Update store name on selection
+                    onChange={(e) => setStoreName(e.target.value)}
                 >
                     <option value="">Select a store</option>
                     <option value="IGA">IGA</option>
@@ -92,11 +94,13 @@ const JsonGenerator = () => {
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     placeholder="Enter flyer URL"
+                    className="url-input" // Add a class for styling
                 />
+            </div>
 
+            {/* New row for buttons */}
+            <div className="button-container">
                 <button onClick={handleGenerateJson}>Generate JSON</button>
-
-                {/* Show download button and disable it if no items exist */}
                 <button 
                     onClick={handleDownloadJson} 
                     disabled={flyerItems.length === 0} 
@@ -106,9 +110,8 @@ const JsonGenerator = () => {
                 </button>
             </div>
 
-            {message && <p className="message">{message}</p>} {/* Display success/error message */}
+            {message && <p className="message">{message}</p>} {/* Display message */}
 
-            <Footer />
         </div>
     );
 };

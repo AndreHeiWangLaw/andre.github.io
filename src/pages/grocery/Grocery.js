@@ -10,9 +10,7 @@ import Footer from '../../components/layout/Footer'; // Import the Footer compon
 const Grocery = () => {
     return (
         <div>
-            <Header />
             <FlyerItems /> {/* Render FlyerItems component */}
-            <Footer />
         </div>
     );
 };

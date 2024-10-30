@@ -1,0 +1,16 @@
+/* src/components/Footer.css */
+footer {
+    display: flex;
+    justify-content: center; /* Centers text horizontally */
+    align-items: center;    /* Centers text vertically */
+    height: 100px;          /* Adjust height as needed */
+    position: relative;     /* Allows absolute positioning within */
+    bottom: 0;              /* Fixes the footer at the bottom */
+    width: 100%;            /* Ensures the footer takes full width */
+    
+  }
+  
+  footer p {
+    margin: 0;              /* Removes default margin */
+  }
+  
