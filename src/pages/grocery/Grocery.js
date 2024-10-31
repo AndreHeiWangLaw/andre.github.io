@@ -11,16 +11,19 @@ const Grocery = () => {
         setSearchTerm(e.target.value);
     };
 
+    // Split the searchTerm into an array of search terms
+    const searchTerms = searchTerm.split(',').map(term => term.trim()).filter(term => term);
+
     return (
         <div className="container"> {/* Add the container class for styling */}
             <input
                 type="text"
-                placeholder="Search items..."
+                placeholder="Search items (separate with commas)..."
                 value={searchTerm}
                 onChange={handleSearchChange} // Update search term on change
                 className="search-input"
             />
-            <FlyerItems searchTerm={searchTerm} /> {/* Pass the search term to FlyerItems */}
+            <FlyerItems searchTerms={searchTerms} /> {/* Pass the array of search terms to FlyerItems */}
         </div>
     );
 };

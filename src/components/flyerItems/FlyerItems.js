@@ -1,5 +1,5 @@
 // src/components/flyerItems/FlyerItems.js
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './FlyerItems.css'; // Import the CSS file for styling
 import flyerItemsData from './flyer_items.json'; // Import the JSON data
 
@@ -7,11 +7,13 @@ const FlyerItems = ({ searchTerms }) => {
     const [items] = useState(flyerItemsData); // Initialize state with imported JSON data
 
     // Filter items based on the search terms
-    const filteredItems = items.filter(item => 
-        searchTerms.some(term => 
-            new RegExp(`\\b${term}\\b`, 'i').test(item.name) // Use word boundaries with regex
-        )
-    );
+    const filteredItems = searchTerms.length === 0 
+        ? items // If no search terms, show all items
+        : items.filter(item => 
+            Array.isArray(searchTerms) && searchTerms.some(term => 
+                new RegExp(`\\b${term}\\b`, 'i').test(item.name) // Use word boundaries with regex
+            )
+        );
 
     // Render flyer items
     return (
