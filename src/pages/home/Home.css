@@ -7,7 +7,8 @@
 
 .page-square {
   width: 200px; /* Set width */
-  height: 200px; /* Set height */
+  max-width: 200px; /* Max width of 200px for larger screens */
+  aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
   border: 2px solid #4a5568; /* Dark grey border color */
   border-radius: 8px; /* Rounded corners */
   overflow: hidden; /* Hide overflow */
@@ -17,6 +18,22 @@
   margin: 20px; /* Space around the square */
   transition: transform 0.3s; /* Smooth transform effect */
   background-color: #f9f9f9; /* Light grey background for the square */
+}
+
+/* Media query for screens smaller than 768px (e.g., tablets, mobile) */
+@media (max-width: 768px) {
+  .page-square {
+    max-width: 150px; /* Reduce max width on smaller screens */
+    margin: 15px; /* Adjust margin for smaller screens */
+  }
+}
+
+/* Media query for very small screens (e.g., phones) */
+@media (max-width: 480px) {
+  .page-square {
+    max-width: 100px; /* Reduce size further for mobile */
+    margin: 10px; /* Adjust margin for mobile */
+  }
 }
 
 .page-square:hover {
