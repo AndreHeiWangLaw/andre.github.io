@@ -1,16 +1,26 @@
 // src/pages/grocery/Grocery.js
-import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link
+import React, { useState } from 'react';
 import FlyerItems from '../../components/flyerItems/FlyerItems'; // Import the FlyerItems component
-
-// layout
-import Header from '../../components/layout/Header'; // Import the Header component
-import Footer from '../../components/layout/Footer'; // Import the Footer component
+import './Grocery.css'; // Import the CSS file for Grocery
 
 const Grocery = () => {
+    const [searchTerm, setSearchTerm] = useState(''); // State for the search term
+
+    // Handle search input change
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
     return (
-        <div>
-            <FlyerItems /> {/* Render FlyerItems component */}
+        <div className="container"> {/* Add the container class for styling */}
+            <input
+                type="text"
+                placeholder="Search items..."
+                value={searchTerm}
+                onChange={handleSearchChange} // Update search term on change
+                className="search-input"
+            />
+            <FlyerItems searchTerm={searchTerm} /> {/* Pass the search term to FlyerItems */}
         </div>
     );
 };

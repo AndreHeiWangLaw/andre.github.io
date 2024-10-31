@@ -1,0 +1,26 @@
+/* src/pages/grocery/Grocery.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light Grey background for the body */
+    margin: 0;
+    padding: 0px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white; /* White background for the container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.search-input {
+    width: 100%; /* Full width for the search input */
+    padding: 10px;
+    margin-bottom: 20px; /* Space below the search input */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1em; /* Adjust font size */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
