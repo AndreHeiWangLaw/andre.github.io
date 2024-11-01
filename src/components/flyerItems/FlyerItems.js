@@ -8,6 +8,12 @@ const FlyerItems = ({ searchTerms }) => {
     // Function to check if a term is negated (starts with "!")
     const isNegated = (term) => term.startsWith('!');
 
+    // Function to extract the English part of the item name
+    const getEnglishName = (name) => {
+        const parts = name.split('|');
+        return parts.length > 1 ? parts[1].trim() : name.trim(); // Return the second part if it exists, otherwise the whole name
+    };
+
     // Separate the search terms into positive and negative terms
     const positiveTerms = searchTerms.filter(term => !isNegated(term));
     const negativeTerms = searchTerms.filter(isNegated);
@@ -19,13 +25,15 @@ const FlyerItems = ({ searchTerms }) => {
             return false;
         }
 
+        const englishName = getEnglishName(item.name); // Get the English name
+
         // Check positive terms using .some() (should match any positive term)
         const matchesPositiveTerms = positiveTerms.length === 0 || 
-            positiveTerms.some(term => new RegExp(`\\b${term}s?\\b`, 'i').test(item.name));
+            positiveTerms.some(term => new RegExp(`\\b${term}s?\\b`, 'i').test(englishName));
 
         // Check negative terms using .every() (should not match any negative term)
         const matchesNegativeTerms = negativeTerms.every(term => 
-            !new RegExp(`\\b${term.replace('!', '')}s?\\b`, 'i').test(item.name)
+            !new RegExp(`\\b${term.replace('!', '')}s?\\b`, 'i').test(englishName)
         );
 
         // Return true if the item matches both positive and negative conditions
@@ -45,18 +53,21 @@ const FlyerItems = ({ searchTerms }) => {
             {filteredItems.length === 0 ? (
                 <p>No items found.</p>
             ) : (
-                filteredItems.map((item, index) => (
-                    <div key={index} className="item">
-                        <h2>{item.name || 'Unnamed Item'}</h2>
-                        <p>Price: {`$${parseFloat(item.price).toFixed(2)}`}</p>
-                        <p>Store: {item.store_name !== undefined ? item.store_name : 'N/A'}</p>
-                        <img 
-                            src={item.cutout_image_url || ''} 
-                            alt={item.name || 'Image'} 
-                            style={{ maxWidth: '100%', height: 'auto' }} 
-                        />
-                    </div>
-                ))
+                filteredItems.map((item, index) => {
+                    const englishName = getEnglishName(item.name); // Get the English name
+                    return (
+                        <div key={index} className="item">
+                            <h2>{englishName}</h2> {/* Use the English name here */}
+                            <p>Price: {`$${parseFloat(item.price).toFixed(2)}`}</p>
+                            <p>Store: {item.store_name !== undefined ? item.store_name : 'N/A'}</p>
+                            <img 
+                                src={item.cutout_image_url || ''} 
+                                alt={englishName || 'Image'} 
+                                style={{ maxWidth: '100%', height: 'auto' }} 
+                            />
+                        </div>
+                    );
+                })
             )}
         </div>
     );
