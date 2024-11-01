@@ -21,11 +21,11 @@ const FlyerItems = ({ searchTerms }) => {
 
         // Check positive terms using .some() (should match any positive term)
         const matchesPositiveTerms = positiveTerms.length === 0 || 
-            positiveTerms.some(term => new RegExp(`\\b${term}\\b`, 'i').test(item.name));
+            positiveTerms.some(term => new RegExp(`\\b${term}s?\\b`, 'i').test(item.name));
 
         // Check negative terms using .every() (should not match any negative term)
         const matchesNegativeTerms = negativeTerms.every(term => 
-            !new RegExp(`\\b${term.replace('!', '')}\\b`, 'i').test(item.name)
+            !new RegExp(`\\b${term.replace('!', '')}s?\\b`, 'i').test(item.name)
         );
 
         // Return true if the item matches both positive and negative conditions
