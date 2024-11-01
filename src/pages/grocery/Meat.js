@@ -4,7 +4,12 @@ import FlyerItems from '../../components/flyerItems/FlyerItems'; // Import the F
 
 const Meat = () => {
     // Set the search terms as an array
-    const searchTerms = ['boneless', 'chicken']; 
+    const searchTerms = [
+        "meat", "chicken", "beef", "pork", 
+        
+        // !regex
+        "!frozen", "!nuggets", "!ricardo", "!broth", "!brochettes", "!butter", "!stuffed"
+    ];
 
     return (
         <div className="container"> {/* Add a container class for styling */}

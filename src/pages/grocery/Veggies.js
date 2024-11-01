@@ -4,8 +4,22 @@ import FlyerItems from '../../components/flyerItems/FlyerItems'; // Import the F
 
 const Veggies = () => {
     // Set the search terms as an array
-    const searchTerms = ['lettuce', 'apple']; 
+    const searchTerms = [
+        "fruit", "vegetable", "apple", "banana", "carrot", "onion", "tomato", "cucumber", "grape",
+        "lettuce", "spinach", "potato", "melon", "squash", "berries", "orange", "pear", "broccoli", 
+        "cauliflower", "cabbage", "asparagus", "zucchini", "mango", "papaya", "cherry", "avocado", 
+        "peach", "plum", "kiwi", "apricot", "pomegranate", "nectarine", "fig", "tangerine", 
+        "dragon fruit", "lychee", "coconut", "passion fruit", "bell pepper", "sweet potato", 
+        "radish", "beet", "turnip", "celery", "artichoke", "eggplant", "green bean", 
+        "snap pea", "kale", "chard", "arugula", "endive", "bok choy", "mustard greens",
+        "mulberry", "starfruit", "persimmon", "cranberry", "raspberry", "gooseberry", 
+        "blood orange", "custard apple", "soursop", "jackfruit", "durian",
+        "leek", "fennel", "parsnip", "pumpkin", "mushroom", "chayote", "okra", 
 
+        // !regex
+        "!chips", "!snack", "!drink", "!juice", "!oil", "!milk"
+    ];
+    
     return (
         <div className="container"> {/* Add a container class for styling */}
             <FlyerItems searchTerms={searchTerms} /> {/* Pass the array of search terms to FlyerItems */}

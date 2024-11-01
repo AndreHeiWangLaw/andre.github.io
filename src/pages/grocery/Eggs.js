@@ -4,7 +4,7 @@ import FlyerItems from '../../components/flyerItems/FlyerItems'; // Import the F
 
 const Eggs = () => {
     // Set the search terms as an array
-    const searchTerms = ['egg', 'eggs']; 
+    const searchTerms = ["egg", "eggs", "!frozen"];
 
     return (
         <div className="container"> {/* Add a container class for styling */}
