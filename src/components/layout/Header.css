@@ -20,6 +20,11 @@
   font-family: 'Gugi', cursive; /* Set the font to Gugi */
 }
 
+.logo a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Use the same color as the surrounding text */
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

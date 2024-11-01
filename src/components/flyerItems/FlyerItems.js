@@ -8,10 +8,13 @@ const FlyerItems = ({ searchTerms }) => {
     // Function to check if a term is negated (starts with "!")
     const isNegated = (term) => term.startsWith('!');
 
-    // Function to extract the English part of the item name
-    const getEnglishName = (name) => {
+    // Function to extract the English part of the item name and format it
+    const getFormattedName = (name) => {
         const parts = name.split('|');
-        return parts.length > 1 ? parts[1].trim() : name.trim(); // Return the second part if it exists, otherwise the whole name
+        const englishName = parts.length > 1 ? parts[1].trim() : name.trim(); // Get the English part
+
+        // Capitalize the first letter of the first word and make the rest lowercase
+        return englishName.charAt(0).toUpperCase() + englishName.slice(1).toLowerCase();
     };
 
     // Separate the search terms into positive and negative terms
@@ -25,15 +28,15 @@ const FlyerItems = ({ searchTerms }) => {
             return false;
         }
 
-        const englishName = getEnglishName(item.name); // Get the English name
+        const formattedName = getFormattedName(item.name); // Get the formatted English name
 
         // Check positive terms using .some() (should match any positive term)
         const matchesPositiveTerms = positiveTerms.length === 0 || 
-            positiveTerms.some(term => new RegExp(`\\b${term}s?\\b`, 'i').test(englishName));
+            positiveTerms.some(term => new RegExp(`\\b${term}s?\\b`, 'i').test(formattedName));
 
         // Check negative terms using .every() (should not match any negative term)
         const matchesNegativeTerms = negativeTerms.every(term => 
-            !new RegExp(`\\b${term.replace('!', '')}s?\\b`, 'i').test(englishName)
+            !new RegExp(`\\b${term.replace('!', '')}s?\\b`, 'i').test(formattedName)
         );
 
         // Return true if the item matches both positive and negative conditions
@@ -54,15 +57,15 @@ const FlyerItems = ({ searchTerms }) => {
                 <p>No items found.</p>
             ) : (
                 filteredItems.map((item, index) => {
-                    const englishName = getEnglishName(item.name); // Get the English name
+                    const formattedName = getFormattedName(item.name); // Get the formatted English name
                     return (
                         <div key={index} className="item">
-                            <h2>{englishName}</h2> {/* Use the English name here */}
+                            <h2>{formattedName}</h2> {/* Use the formatted name here */}
                             <p>Price: {`$${parseFloat(item.price).toFixed(2)}`}</p>
                             <p>Store: {item.store_name !== undefined ? item.store_name : 'N/A'}</p>
                             <img 
                                 src={item.cutout_image_url || ''} 
-                                alt={englishName || 'Image'} 
+                                alt={formattedName || 'Image'} 
                                 style={{ maxWidth: '100%', height: 'auto' }} 
                             />
                         </div>

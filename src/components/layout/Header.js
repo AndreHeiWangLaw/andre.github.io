@@ -9,7 +9,9 @@ function Header() {
       <div className="header-content">
         {/* Logo */}
         <div className="logo">
-          <h1>Hei</h1>
+          <Link to="/">
+            <h1>Hei</h1>
+          </Link>
         </div>
 
         {/* Dropdown Menu */}
