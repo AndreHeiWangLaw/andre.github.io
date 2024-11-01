@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4; /* Light Grey background for the body */
     margin: 0;
-    padding: 0px;
+    padding: 0;
 }
 
 .container {
@@ -15,12 +15,33 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+.search-bar {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center vertically */
+    margin-bottom: 20px; /* Space below the search bar */
+}
+
 .search-input {
-    width: 100%; /* Full width for the search input */
-    padding: 10px;
-    margin-bottom: 20px; /* Space below the search input */
+    flex: 1; /* Allow the input to grow */
+    padding: 10px; /* Padding for the input */
+    padding-right: 50px; /* Ensure space for the icon */
     border: 1px solid #ccc; /* Light grey border */
     border-radius: 5px; /* Rounded corners */
     font-size: 1em; /* Adjust font size */
     box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.search-button {
+    background: none; /* Remove default button styling */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor on hover */
+    margin-left: -40px; /* Position the button slightly left to overlap with the input */
+    display: flex; /* Center the icon */
+    align-items: center; /* Center vertically */
+    padding: 10px; /* Padding for a better hit area */
+}
+
+.search-button i {
+    font-size: 1.2em; /* Adjust icon size as needed */
+    color: #666; /* Change icon color as needed */
 }

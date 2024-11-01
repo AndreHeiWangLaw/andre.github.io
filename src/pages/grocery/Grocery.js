@@ -18,6 +18,14 @@ const Grocery = () => {
         setSearchTerms(terms); // Update searchTerms with the new terms
     };
 
+    // Handle key down events for search submission
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') { // Check if Enter key is pressed
+            handleSearchSubmit(); // Call the search submit function
+            e.target.blur(); // Dismiss the keyboard on mobile
+        }
+    };
+
     // Handle store filter logic
     const handleStoreFilter = (storeName) => {
         const filterTerm = `*${storeName}`;
@@ -36,14 +44,19 @@ const Grocery = () => {
 
     return (
         <div className="container"> {/* Add the container class for styling */}
-            <input
-                type="text"
-                placeholder="Search items (separate with commas)..."
-                value={searchTerm}
-                onChange={handleSearchChange} // Update search term on change
-                className="search-input"
-                onBlur={handleSearchSubmit} // Update search terms on input blur
-            />
+            <div className="search-bar">
+                <input
+                    type="text"
+                    placeholder="Search items (separate with commas)..."
+                    value={searchTerm}
+                    onChange={handleSearchChange} // Update search term on change
+                    className="search-input"
+                    onKeyDown={handleKeyDown} // Handle key down for search submission
+                />
+                <button className="search-button" onClick={handleSearchSubmit}>
+                    <i className="fas fa-search"></i> {/* Font Awesome search icon */}
+                </button>
+            </div>
             <div className="filter-buttons">
                 {stores.map(store => (
                     <button
