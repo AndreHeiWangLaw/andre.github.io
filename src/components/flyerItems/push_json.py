@@ -79,11 +79,15 @@ commit_message = 'Add or update flyer_items.json'
 
 # Load the JSON data from the local flyer_items.json file
 try:
-    with open(file_name, 'r') as json_file:
+    with open(file_name, 'r', encoding='utf-8') as json_file:  # Specify the encoding here
         content = json_file.read()
 except FileNotFoundError:
     print(f"Error: The file '{file_name}' does not exist in the current directory.")
     exit(1)
+except UnicodeDecodeError as e:
+    print(f"Error decoding file '{file_name}': {e}")
+    exit(1)
+
 
 # Push the file to GitHub
 push_file_to_github(repo_url, file_path, file_name, commit_message, content, GITHUB_TOKEN)

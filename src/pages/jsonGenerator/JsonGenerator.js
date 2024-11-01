@@ -87,6 +87,7 @@ const JsonGenerator = () => {
                     <option value="IGA">IGA</option>
                     <option value="Metro">Metro</option>
                     <option value="SuperC">SuperC</option>
+                    <option value="Maxi">Maxi</option>
                 </select>
 
                 <input
@@ -100,12 +101,16 @@ const JsonGenerator = () => {
 
             {/* New row for buttons */}
             <div className="button-container">
+                <button onClick={() => window.open('https://flipp.com/en-ca/flyers/groceries?postal_code=J4W2S8', '_blank')}>
+                    Find Flyer
+                </button>
+
                 <button onClick={handleGenerateJson}>Generate JSON</button>
+
                 <button 
                     onClick={handleDownloadJson} 
                     disabled={flyerItems.length === 0} 
-                    className={flyerItems.length === 0 ? 'disabled' : ''}
-                >
+                    className={flyerItems.length === 0 ? 'disabled' : ''}>
                     Download JSON
                 </button>
             </div>

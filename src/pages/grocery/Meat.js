@@ -8,7 +8,7 @@ const Meat = () => {
         "meat", "chicken", "beef", "pork", 
         
         // !regex
-        "!frozen", "!nuggets", "!ricardo", "!broth", "!brochettes", "!butter", "!stuffed"
+        "!frozen", "!nuggets", "!ricardo", "!broth", "!brochettes", "!butter", "!stuffed", "!macaroni", "!maple", "!sliced"
     ];
 
     return (

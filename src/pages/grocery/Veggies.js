@@ -17,7 +17,7 @@ const Veggies = () => {
         "leek", "fennel", "parsnip", "pumpkin", "mushroom", "chayote", "okra", 
 
         // !regex
-        "!chips", "!snack", "!drink", "!juice", "!oil", "!milk"
+        "!chips", "!snack", "!drink", "!juice", "!oil", "!milk", "!cocktail", "!sauce", "!baby"
     ];
     
     return (
