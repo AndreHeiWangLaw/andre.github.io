@@ -9,7 +9,7 @@ function Header() {
       <div className="header-content">
         {/* Logo */}
         <div className="logo">
-          <h1>Logo</h1>
+          <h1>Hei</h1>
         </div>
 
         {/* Dropdown Menu */}
@@ -24,6 +24,15 @@ function Header() {
             </Link>
             <Link to="/grocery" className="dropdown-item">
               Grocery
+            </Link>
+            <Link to="/eggs" className="dropdown-item">
+              Egg 
+            </Link>
+            <Link to="/meat" className="dropdown-item">
+              Meat 
+            </Link>
+            <Link to="/veggies" className="dropdown-item">
+              Veggies 
             </Link>
             <Link to="/jsonGenerator" className="dropdown-item">
               Json 

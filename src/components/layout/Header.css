@@ -17,6 +17,7 @@
 .logo {
   flex: 1;
   text-align: center; /* Center the logo */
+  font-family: 'Gugi', cursive; /* Set the font to Gugi */
 }
 
 .dropdown {
@@ -31,6 +32,7 @@
   padding: 8px 16px; /* Padding around the button */
   border-radius: 4px;
   cursor: pointer;
+  min-width: 90px; /* Ensure a minimum width for consistency */
 }
 
 .dropdown-button:hover {
@@ -49,6 +51,7 @@
   color: #333; /* Dark grey text for dropdown items */
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  min-width: 90px; /* Ensure a minimum width for consistency */
 }
 
 .dropdown:hover .dropdown-menu {
