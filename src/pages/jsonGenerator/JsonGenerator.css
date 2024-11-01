@@ -48,7 +48,7 @@ button:hover {
 }
 
 button.disabled {
-    background-color: #ccc; /* Grey background for disabled state */
+    background-color: #cccccc; /* Grey background for disabled state */
     color: #666; /* Grey text for disabled state */
     cursor: not-allowed; /* Change cursor to indicate it's not clickable */
 }

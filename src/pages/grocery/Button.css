@@ -1,0 +1,42 @@
+.container {
+    padding: 20px; /* Add padding to the container */
+}
+
+.filter-buttons {
+    display: flex; /* Use flexbox for button alignment */
+    gap: 10px; /* Space between buttons */
+    margin-bottom: 20px; /* Space below the button container */
+}
+
+button {
+    cursor: pointer; /* Pointer cursor for clickable buttons */
+    border: none; /* Remove default button border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for the button */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color */
+}
+
+/* Define the active state */
+button.active {
+    background-color: #4a5568; /* Blue color for active button */
+    color: white; /* Ensure text is white when active */
+}
+
+/* Default styles for inactive buttons */
+.filter-buttons button:not(.active) {
+    background-color: #cccccc; /* Grey background for disabled state */
+    color: #666; /* Grey text for disabled state */
+}
+
+/* Hover effect for inactive buttons only */
+.filter-buttons button:not(.active):hover {
+    background-color: #696969; /* Change background to grey on hover */
+    color: white; /* Ensure text is white on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .filter-buttons {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+}
